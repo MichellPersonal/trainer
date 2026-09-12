@@ -1183,15 +1183,82 @@ nav .btn:hover,
   .hero-actions{width:63% !important}
 }
 
+
+/* === MOBILE TARGET V2 — calibrado pelo print real do iPhone === */
+@media screen and (max-width:800px){
+  nav{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+  }
+
+  header.hero > img.hero-photo{
+    width:92% !important;
+    height:92% !important;
+    left:auto !important;
+    right:-1% !important;
+    top:7% !important;
+    bottom:auto !important;
+    object-fit:cover !important;
+    object-position:56% 42% !important;
+    transform:none !important;
+    opacity:.94 !important;
+  }
+
+  /* título volta a respirar: evita É / POSSÍVEL em linhas separadas */
+  .hero h1{
+    width:76% !important;
+    max-width:76% !important;
+    font-size:clamp(44px,10.2vw,64px) !important;
+    line-height:.92 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  /* mantém texto menor à esquerda para não cobrir o rosto */
+  .hero-copy{
+    width:57% !important;
+    max-width:57% !important;
+  }
+
+  .hero-actions{
+    width:64% !important;
+    max-width:420px !important;
+  }
+}
+
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo{
+    width:94% !important;
+    height:91% !important;
+    right:-2% !important;
+    top:8% !important;
+    object-position:55% 42% !important;
+  }
+
+  .hero h1{
+    width:78% !important;
+    max-width:78% !important;
+    font-size:clamp(42px,10.4vw,57px) !important;
+  }
+
+  .hero-copy{
+    width:58% !important;
+    max-width:58% !important;
+  }
+
+  .hero-actions{width:65% !important}
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=target1"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=target2"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=target1" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=target1" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=target1" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=target2" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=target2" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=target2" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
