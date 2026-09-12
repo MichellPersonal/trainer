@@ -896,15 +896,53 @@ nav .btn:hover,
   }
 }
 
+
+/* === MOBILE FINAL — enquadramento do Michel conforme referência === */
+@media screen and (max-width:800px){
+  header.hero > img.hero-photo{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:72% 50% !important;
+    transform:none !important;
+    transform-origin:center center !important;
+    opacity:.86 !important;
+  }
+
+  /* leitura à esquerda sem apagar Michel/academia */
+  header.hero:after{
+    background:
+      linear-gradient(90deg,
+        rgba(6,7,6,.96) 0%,
+        rgba(6,7,6,.82) 26%,
+        rgba(6,7,6,.48) 48%,
+        rgba(6,7,6,.15) 70%,
+        rgba(6,7,6,.03) 100%),
+      linear-gradient(180deg,
+        rgba(6,7,6,.05) 0%,
+        rgba(6,7,6,.02) 62%,
+        rgba(6,7,6,.76) 100%) !important;
+  }
+}
+
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo{
+    object-position:73% 50% !important;
+    transform:none !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=4"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=final"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=4" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=4" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=4" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=final" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=final" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=final" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
