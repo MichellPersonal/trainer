@@ -723,15 +723,77 @@ nav .btn:hover,
   }
 }
 
+
+/* === MOBILE V3 CORRIGIDO — override final === */
+@media screen and (max-width:800px){
+  /* Michel volta para dentro do enquadramento no telefone */
+  header.hero > img.hero-photo{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:75% center !important;
+    transform:none !important;
+    opacity:.78 !important;
+  }
+
+  /* Mais espaço visual sem mexer no desktop */
+  .hero-content{
+    padding-right:8px !important;
+  }
+  .hero .btn{
+    padding:10px 14px !important;
+    font-size:12px !important;
+    line-height:1.15 !important;
+  }
+
+  /* Avatares: trava física em quadrado e recorta em círculo */
+  .hero-avatars{
+    display:flex !important;
+    align-items:center !important;
+    flex:0 0 auto !important;
+    min-width:max-content !important;
+  }
+  .hero-avatars img{
+    display:block !important;
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    max-width:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+    flex:0 0 36px !important;
+    aspect-ratio:1 / 1 !important;
+    border-radius:9999px !important;
+    clip-path:circle(50% at 50% 50%) !important;
+    object-fit:cover !important;
+    box-sizing:border-box !important;
+  }
+  .hero-avatars img:nth-child(1){object-position:center 20% !important}
+  .hero-avatars img:nth-child(2){object-position:center 20% !important}
+  .hero-avatars img:nth-child(3){object-position:center 24% !important}
+
+  .hero-proof{
+    width:100% !important;
+    padding:0 12px 0 2px !important;
+    gap:11px !important;
+    box-sizing:border-box !important;
+  }
+}
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo{
+    object-position:76% center !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=3"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=3" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=3" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=3" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
