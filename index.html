@@ -934,15 +934,113 @@ nav .btn:hover,
   }
 }
 
+
+/* === MOBILE — espaçamento conforme referência enviada === */
+@media screen and (max-width:800px){
+  header.hero{
+    min-height:100svh !important;
+    overflow:hidden !important;
+  }
+
+  /* Michel ocupa a direita, sem ficar escondido atrás do bloco de texto */
+  header.hero > img.hero-photo{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:76% 50% !important;
+    transform:none !important;
+    opacity:.90 !important;
+  }
+
+  /* Sombra concentrada do lado esquerdo; direita mais limpa para o Michel */
+  header.hero:after{
+    background:
+      linear-gradient(90deg,
+        rgba(5,6,5,.98) 0%,
+        rgba(5,6,5,.92) 25%,
+        rgba(5,6,5,.70) 43%,
+        rgba(5,6,5,.28) 59%,
+        rgba(5,6,5,.06) 73%,
+        rgba(5,6,5,.02) 100%),
+      linear-gradient(180deg,
+        rgba(5,6,5,.08) 0%,
+        rgba(5,6,5,.02) 60%,
+        rgba(5,6,5,.78) 100%) !important;
+  }
+
+  .hero-content{
+    padding-left:28px !important;
+    padding-right:24px !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Cabeçalho/eyebrow e título com largura controlada para não atravessar o rosto */
+  .hero-kicker{
+    max-width:66% !important;
+  }
+  .hero h1{
+    max-width:68% !important;
+    font-size:clamp(48px, 11.2vw, 72px) !important;
+    line-height:.91 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  /* Parágrafo fica claramente à esquerda, como no exemplo */
+  .hero-copy{
+    max-width:56% !important;
+    font-size:clamp(16px, 4.25vw, 20px) !important;
+    line-height:1.42 !important;
+  }
+
+  /* CTAs mais estreitos, deixando a coluna da direita respirar */
+  .hero-actions{
+    width:64% !important;
+    max-width:430px !important;
+  }
+
+  /* mantém o restante da prova social usando a largura normal */
+  .hero-stats,
+  .hero-proof{
+    width:100% !important;
+    max-width:none !important;
+  }
+}
+
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo{
+    object-position:77% 50% !important;
+  }
+
+  .hero-content{
+    padding-left:26px !important;
+    padding-right:18px !important;
+  }
+
+  .hero h1{
+    max-width:69% !important;
+    font-size:clamp(46px, 11.5vw, 62px) !important;
+  }
+
+  .hero-copy{
+    max-width:58% !important;
+  }
+
+  .hero-actions{
+    width:65% !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=final"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=spacing1"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=final" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=final" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=final" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=spacing1" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=spacing1" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=spacing1" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
