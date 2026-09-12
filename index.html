@@ -582,6 +582,72 @@ nav .btn:hover,
   }
 }
 
+
+/* MOBILE FINAL — capa com Michel mais visível + avatares sem cortar rosto */
+@media(max-width:800px){
+  .hero{
+    min-height:100svh !important;
+    padding:96px 0 46px !important;
+    overflow:hidden;
+  }
+
+  /* No celular, prioriza o Michel sem sacrificar a leitura do texto */
+  .hero-photo{
+    opacity:.72 !important;
+    object-fit:cover !important;
+    object-position:72% center !important;
+    transform:scale(1.01);
+  }
+
+  /* Escurece principalmente a área do texto e deixa Michel respirar à direita */
+  .hero:after{
+    background:
+      linear-gradient(90deg,
+        rgba(8,9,8,.96) 0%,
+        rgba(8,9,8,.88) 34%,
+        rgba(8,9,8,.58) 58%,
+        rgba(8,9,8,.22) 78%,
+        rgba(8,9,8,.10) 100%
+      ),
+      linear-gradient(180deg,
+        rgba(8,9,8,.16) 0%,
+        rgba(8,9,8,.10) 50%,
+        rgba(8,9,8,.88) 100%
+      ) !important;
+  }
+
+  .hero::before{
+    left:0 !important;
+    top:auto !important;
+    bottom:-1px !important;
+    width:100% !important;
+    height:36% !important;
+    background:linear-gradient(180deg,transparent,#080908 92%) !important;
+    filter:none !important;
+    transform:none !important;
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2 !important;
+  }
+
+  /* Fotos pequenas: rosto inteiro e enquadramento mais natural */
+  .hero-avatars img{
+    object-fit:cover !important;
+    object-position:center 18% !important;
+  }
+  .hero-avatars img:nth-child(1){object-position:center 16% !important}
+  .hero-avatars img:nth-child(2){object-position:center 14% !important}
+  .hero-avatars img:nth-child(3){object-position:center 20% !important}
+}
+
+@media(max-width:480px){
+  .hero-photo{
+    object-position:70% center !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
 <header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg"><div class="wrap hero-content">
