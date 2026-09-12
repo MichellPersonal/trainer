@@ -1,0 +1,742 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Michel Personal — Performance que acompanha você</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080908;color:#f6f4ee;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+:root{--lime:#c9ff3d;--muted:#aaa;--card:#111311}.wrap{width:min(1180px,90%);margin:auto}
+nav{position:fixed;z-index:30;top:0;left:0;right:0;padding:20px 0;background:linear-gradient(#080908dd,transparent);backdrop-filter:blur(8px)}
+.nav{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;letter-spacing:-.04em;font-size:21px}.brand b{color:var(--lime)}
+.links{display:flex;gap:28px;align-items:center}.links a{color:#ddd;text-decoration:none;font-size:13px}.btn{display:inline-flex;padding:14px 21px;border-radius:999px;background:var(--lime);color:#0b0c09;text-decoration:none;font-weight:800}
+.hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;padding:130px 0 70px;background:#080908;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080908f5 0%,#080908d9 28%,#0809086e 50%,#08090812 72%,#08090855 100%)}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.82) contrast(1.06)}
+.hero-content{position:relative;z-index:2;width:65%}.eyebrow{color:var(--lime);font-weight:800;text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+h1{font-size:clamp(60px,9vw,132px);line-height:.82;letter-spacing:-.075em;margin:18px 0 28px}.stroke{color:transparent;-webkit-text-stroke:1px #eee}
+.lead{font-size:19px;line-height:1.55;color:#c8c8c3;max-width:570px}.actions{display:flex;gap:12px;margin-top:30px}.ghost{border:1px solid #454545;background:#121312;color:white}
+.stats{display:flex;gap:48px;margin-top:54px}.stat strong{display:block;font-size:27px}.stat span{font-size:12px;color:#888}
+section{padding:110px 0}.headline{font-size:clamp(42px,6vw,82px);letter-spacing:-.06em;line-height:.95;margin:10px 0 20px}.sub{color:#aaa;max-width:600px;line-height:1.6}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:45px}.method{background:var(--card);border:1px solid #252725;padding:34px;border-radius:24px;min-height:260px}.num{color:var(--lime);font-size:13px}.method h3{font-size:25px;margin-top:60px}.method p{color:#999;line-height:1.55}
+.results{background:#e9e9e3;color:#0b0c09}.results .sub{color:#555}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}.result{position:relative;overflow:hidden;border-radius:28px;background:#111}.result img{width:100%;height:640px;object-fit:cover;display:block}.tag{position:absolute;left:22px;bottom:22px;background:#0a0b09e8;color:white;border-radius:999px;padding:12px 16px;font-size:12px}
+.quote{font-size:clamp(34px,5vw,72px);line-height:1.05;letter-spacing:-.045em;max-width:1000px;margin:40px 0}.quote b{color:var(--lime)}
+.feedbacks{display:grid;grid-template-columns:1fr 1fr;gap:18px}.feedback{padding:34px;border-radius:25px;background:#111311;border:1px solid #242624}.feedback p{font-size:20px;line-height:1.55;color:#ddd}.feedback span{color:var(--lime);font-size:12px;text-transform:uppercase;letter-spacing:.14em}
+.cta{padding:130px 0;background:var(--lime);color:#090a08;text-align:center}.cta h2{font-size:clamp(50px,8vw,110px);line-height:.85;letter-spacing:-.07em;margin:0 0 30px}.cta .btn{background:#0a0b09;color:white}
+footer{padding:34px 0;color:#777;font-size:12px}.reveal{opacity:0;transform:translateY(35px);transition:.8s cubic-bezier(.2,.8,.2,1)}.reveal.on{opacity:1;transform:none}
+@media(max-width:800px){.links a{display:none}.hero-photo{inset:0;width:100%;height:100%;opacity:.62;object-position:62% center}.hero-content{width:100%}.stats{gap:20px}.method-grid,.result-grid,.feedbacks{grid-template-columns:1fr}.result img{height:auto}section{padding:80px 0}}
+
+.hero{align-items:center;padding-top:100px}
+.hero-content{width:54%;margin-left:0}
+.hero:after{background:linear-gradient(90deg,#080908fa 0%,#080908e8 31%,#0809089c 47%,#08090828 63%,#08090820 100%)}
+.hero-proof{display:flex;align-items:center;gap:14px;margin-top:28px}
+.hero-avatars{display:flex}.hero-avatars img{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:center 28%;border:2px solid #0a0b09;margin-left:-10px;box-shadow:0 4px 14px #0007}.hero-avatars img:first-child{margin-left:0}
+.hero-proof strong{display:block;font-size:13px}.hero-proof small{color:#92958e}
+.location-pill{display:inline-flex;gap:8px;align-items:center;margin-top:18px;color:#b8b9b4;font-size:12px}
+.wa-preview{text-decoration:none;color:inherit;cursor:pointer;
+margin-top:22px;width:min(390px,100%);padding:13px 15px;border:1px solid #292c27;border-radius:18px;background:#10120fe8;display:flex;align-items:center;gap:12px;box-shadow:0 20px 55px #0007}
+.wa-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#071008;font-weight:900}
+.wa-preview b{font-size:13px}.wa-preview span{display:block;color:#8e918a;font-size:11px;margin-top:3px}
+.compare{position:relative;overflow:hidden;border-radius:28px;background:#111;aspect-ratio:1/1}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .after{clip-path:inset(0 50% 0 0)}
+.compare-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;box-shadow:0 0 0 1px #0003}
+.compare-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:#0b0c09;font-weight:900}
+.compare-label{position:absolute;top:18px;padding:9px 12px;border-radius:999px;background:#090a08cc;color:white;font-size:11px;font-weight:800}.compare-label.before{left:18px}.compare-label.after-l{right:18px}
+.compare-note{margin-top:16px;color:#555;font-size:13px}
+
+
+.hero .wrap{width:min(1280px,92%)}
+.hero-content{width:48%;padding-left:26px}
+.hero-photo{object-position:center center}
+.hero:after{background:linear-gradient(90deg,#080908fa 0%,#080908e8 25%,#080908a8 43%,#08090838 58%,#08090808 76%,#08090820 100%)}
+@media(min-width:1000px){
+  .hero h1{font-size:clamp(58px,6.8vw,106px)}
+  .hero .lead{max-width:530px}
+}
+@media(max-width:800px){
+  .hero-content{width:100%;padding-left:0}
+  .hero-photo{object-position:64% center}
+  .hero:after{background:linear-gradient(90deg,#080908ed 0%,#080908c5 48%,#08090848 100%)}
+}
+
+
+.ba-section{height:430vh;padding:0;background:#e9e9e3;color:#0b0c09;position:relative}
+.ba-sticky{height:100vh;position:sticky;top:0;display:flex;align-items:center;overflow:hidden}
+.ba-sticky .headline{margin-bottom:8px}.ba-sticky .sub{margin-top:0}
+.ba-stage{height:min(58vh,650px);margin-top:24px;border-radius:28px;overflow:hidden;position:relative;background:#111;box-shadow:0 28px 80px #0002}
+.ba-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#111}
+.ba-after{clip-path:inset(0 100% 0 0)}
+.ba-divider{position:absolute;top:0;bottom:0;left:0;width:2px;background:#fff;box-shadow:0 0 18px #0008}
+.ba-handle{position:absolute;left:0;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:#090a08;font-weight:900;box-shadow:0 6px 25px #0006}
+.ba-label{position:absolute;top:18px;padding:9px 13px;border-radius:999px;background:#080908d9;color:#fff;font-size:11px;font-weight:900;letter-spacing:.12em}.ba-left{left:18px}.ba-right{right:18px}
+.ba-status{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);padding:10px 15px;border-radius:999px;background:#080908dc;color:#fff;font-size:12px;white-space:nowrap}.ba-status span{color:var(--lime);font-weight:900}.ba-status small{color:#bbb}
+.ba-dots{display:flex;gap:8px;justify-content:center;margin-top:15px}.ba-dots i{width:24px;height:3px;border-radius:9px;background:#bbb}.ba-dots i.active{background:#111}
+@media(max-width:800px){.ba-section{height:390vh}.ba-stage{height:52vh}.ba-sticky{align-items:center}.ba-sticky .headline{font-size:42px}}
+
+
+@media(min-width:801px){
+  .hero-photo{object-position:44% center}
+  .hero-content{width:47%;padding-left:42px}
+}
+
+
+.ba-stage{background:#d8d8d2;box-shadow:none;border:1px solid #c9c9c2}
+.ba-stage>img{background:#d8d8d2;object-fit:cover}
+.ba-story{
+ position:absolute;z-index:6;left:24px;bottom:24px;width:min(410px,72%);
+ padding:20px 22px;border-radius:20px;background:rgba(239,239,233,.92);
+ color:#0a0b09;backdrop-filter:blur(14px);transition:.45s ease
+}
+.ba-story .mini{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:#5d5f57}
+.ba-story h3{font-size:22px;line-height:1.08;margin:8px 0 6px;letter-spacing:-.035em}
+.ba-story p{font-size:13px;line-height:1.45;margin:0;color:#555}
+.ba-story.after-copy{left:auto;right:24px;background:rgba(15,17,14,.9);color:white}
+.ba-story.after-copy .mini{color:var(--lime)}.ba-story.after-copy p{color:#c4c6c0}
+.ba-status{display:none}
+.ba-divider{background:var(--lime);width:3px}
+.ba-handle{background:#0b0c09;color:var(--lime);border:2px solid var(--lime)}
+@media(max-width:800px){
+ .ba-story{left:14px;bottom:14px;width:calc(100% - 28px);padding:15px}
+ .ba-story.after-copy{right:14px}
+ .ba-story h3{font-size:18px}
+}
+
+
+.ba-stage{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);
+  background:#e9e9e3;
+  border:0;
+  overflow:hidden;
+  gap:0;
+}
+.ba-visual{
+  position:relative;
+  min-width:0;
+  overflow:hidden;
+  border-radius:28px 0 0 28px;
+  background:#d6d6cf;
+}
+.ba-visual>img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center center;background:#d6d6cf
+}
+.ba-copy-panel{
+  position:relative;
+  padding:46px 38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:#f3f3ed;
+  border-radius:0 28px 28px 0;
+  color:#0b0c09
+}
+.ba-copy-panel .phase{font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:900;color:#74776d}
+.ba-copy-panel h3{font-size:clamp(28px,3vw,46px);line-height:.98;letter-spacing:-.055em;margin:14px 0 18px}
+.ba-copy-panel p{font-size:15px;line-height:1.6;color:#5c5e57;margin:0}
+.ba-copy-panel .accent-line{width:48px;height:4px;border-radius:8px;background:var(--lime);margin-bottom:28px}
+.ba-copy-panel.after-mode{background:#11130f;color:#fff}
+.ba-copy-panel.after-mode .phase{color:var(--lime)}
+.ba-copy-panel.after-mode p{color:#b9bcb4}
+.ba-story{display:none!important}
+.ba-label{z-index:5}
+.ba-divider,.ba-handle{z-index:5}
+@media(max-width:800px){
+ .ba-stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1.4fr) auto;height:68vh}
+ .ba-visual{border-radius:22px 22px 0 0}
+ .ba-copy-panel{border-radius:0 0 22px 22px;padding:22px 20px}
+ .ba-copy-panel h3{font-size:25px;margin:8px 0 10px}
+ .ba-copy-panel .accent-line{margin-bottom:10px}
+}
+
+
+/* V8 — antes/depois sem recortar o corpo */
+.ba-visual{
+  background:#deded8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.ba-visual>img{
+  object-fit:contain !important;
+  object-position:center center !important;
+  width:100%;
+  height:100%;
+  background:#deded8;
+}
+@media(min-width:801px){
+  .ba-stage{height:min(68vh,760px)}
+}
+
+
+/* Final cinematográfico adicionado sobre a V8 */
+.final-cinema{height:400vh;position:relative;background:#080908;padding:0!important}
+.final-sticky{height:100vh;position:sticky;top:0;overflow:hidden;display:grid;place-items:center;background:#080908}
+.final-bg{position:absolute;inset:-10%;background:linear-gradient(135deg,#111610,#090b09 48%,#18130e);transform:scale(1.08);filter:blur(25px);will-change:transform,filter}
+.final-shade{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(201,255,61,.09),transparent 35%),linear-gradient(180deg,rgba(8,9,8,.30),rgba(8,9,8,.92));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.final-copy{position:relative;z-index:2;width:min(1040px,88%);text-align:center;transform:translateY(80px) scale(.82);opacity:.18;will-change:transform,opacity}
+.final-kicker{font-size:11px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin-bottom:20px}
+.final-copy h2{font-size:clamp(68px,12vw,170px);line-height:.76;letter-spacing:-.08em;margin:0;color:#f7f5ef}
+.final-copy h2 span:last-child{color:var(--lime)}
+.final-copy p{font-size:clamp(16px,1.7vw,21px);line-height:1.55;max-width:670px;margin:34px auto 18px;color:#d0d1cb}
+.final-location{font-size:11px;letter-spacing:.16em;color:#8f928b;margin:0 0 28px}
+.final-btn{background:var(--lime);transform:translateY(20px);opacity:0}
+.final-progress{position:absolute;z-index:4;bottom:24px;left:50%;transform:translateX(-50%);width:min(280px,55vw);height:2px;background:#ffffff26}
+.final-progress i{display:block;height:100%;width:0;background:var(--lime)}
+@media(max-width:800px){.final-cinema{height:350vh}.final-copy{width:90%}.final-copy h2{font-size:clamp(62px,20vw,100px)}}
+
+
+/* Destaque do "É POSSÍVEL." */
+.hero-possible{
+  display:inline-block;
+  color:#c9ff3d !important;
+  font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif !important;
+  font-style:italic !important;
+  font-weight:900 !important;
+  letter-spacing:-.045em !important;
+  transform:skewX(-7deg);
+  text-shadow:0 0 28px rgba(201,255,61,.12);
+}
+
+
+/* Ajustes finais: botão superior legível + WhatsApp no atendimento */
+nav .btn,
+.topbar .btn,
+.hero-nav .btn,
+header + nav .btn{
+  box-shadow:0 5px 16px rgba(201,255,61,.16) !important;
+  filter:none !important;
+  text-shadow:none !important;
+}
+nav .btn:hover,
+.topbar .btn:hover,
+.hero-nav .btn:hover{
+  box-shadow:0 7px 20px rgba(201,255,61,.22) !important;
+}
+.wa-icon svg,.contact-avatar svg,.avatar svg{
+  width:24px;height:24px;display:block;
+}
+
+
+/* CORREÇÃO VISÍVEL — CTA superior sem brilho estourado */
+.nav-cta, .nav-actions .btn, header .btn, header a.btn, nav a.btn{
+  background:#b8ee32 !important;
+  color:#10130d !important;
+  box-shadow:0 4px 12px rgba(184,238,50,.10) !important;
+  filter:none !important;
+  text-shadow:none !important;
+}
+.nav-cta:hover, .nav-actions .btn:hover, header .btn:hover, header a.btn:hover, nav a.btn:hover{
+  background:#c2f542 !important;
+  box-shadow:0 5px 14px rgba(184,238,50,.14) !important;
+  filter:none !important;
+}
+
+/* WhatsApp real no card Atendimento */
+.whatsapp-card .wa-badge,
+.contact-card .wa-badge,
+.atendimento-card .wa-badge,
+.wa-badge{
+  display:grid !important;
+  place-items:center !important;
+}
+.wa-badge svg{width:25px;height:25px;display:block;color:#071b0d}
+
+
+/* Hover premium — cards 01/02/03 + Atendimento */
+.method{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .38s cubic-bezier(.2,.8,.2,1),
+    border-color .38s ease,
+    box-shadow .38s ease,
+    background .38s ease;
+  will-change:transform;
+}
+.method::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(201,255,61,.14), transparent 34%),
+    linear-gradient(120deg, transparent 22%, rgba(255,255,255,.035) 48%, transparent 72%);
+  opacity:0;
+  transform:translateX(-12%);
+  transition:opacity .38s ease, transform .55s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.method > *{position:relative;z-index:1}
+.method:hover{
+  transform:translateY(-10px) scale(1.015);
+  border-color:rgba(201,255,61,.34);
+  box-shadow:0 22px 52px rgba(0,0,0,.38), 0 0 0 1px rgba(201,255,61,.06);
+  background:#141713;
+}
+.method:hover::before{
+  opacity:1;
+  transform:translateX(0);
+}
+.method .num{
+  transition:transform .35s ease, letter-spacing .35s ease, text-shadow .35s ease;
+}
+.method:hover .num{
+  transform:translateX(4px);
+  letter-spacing:.08em;
+  text-shadow:0 0 18px rgba(201,255,61,.22);
+}
+.method h3{
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), color .35s ease;
+}
+.method:hover h3{
+  transform:translateY(-3px);
+  color:#fff;
+}
+
+/* Atendimento direto pelo WhatsApp */
+.wa-preview{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .36s cubic-bezier(.2,.8,.2,1),
+    border-color .36s ease,
+    background .36s ease,
+    box-shadow .36s ease;
+}
+.wa-preview::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg, transparent 25%, rgba(37,211,102,.08) 50%, transparent 76%);
+  transform:translateX(-115%);
+  transition:transform .62s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.wa-preview > *{position:relative;z-index:1}
+.wa-preview:hover{
+  transform:translateY(-6px) scale(1.012);
+  border-color:rgba(37,211,102,.42);
+  background:#121612;
+  box-shadow:0 18px 44px rgba(0,0,0,.34), 0 0 24px rgba(37,211,102,.07);
+}
+.wa-preview:hover::after{
+  transform:translateX(115%);
+}
+.wa-preview .wa-badge,
+.wa-preview .wa-icon{
+  transition:transform .38s cubic-bezier(.2,.8,.2,1), box-shadow .38s ease;
+}
+.wa-preview:hover .wa-badge,
+.wa-preview:hover .wa-icon{
+  transform:scale(1.10) rotate(-5deg);
+  box-shadow:0 8px 22px rgba(37,211,102,.20);
+}
+.wa-preview b{
+  transition:color .3s ease, transform .3s ease;
+}
+.wa-preview:hover b{
+  color:#f5fff8;
+  transform:translateX(3px);
+}
+
+/* Acessibilidade: sem movimento excessivo para quem prefere reduzir animações */
+@media (prefers-reduced-motion: reduce){
+  .method,.method::before,.method .num,.method h3,
+  .wa-preview,.wa-preview::after,.wa-preview .wa-badge,.wa-preview .wa-icon,.wa-preview b{
+    transition:none!important;
+    transform:none!important;
+  }
+}
+
+
+/* Mobile polish */
+@media(max-width:800px){
+  body{overflow-x:hidden}
+  .wrap{width:min(94%,680px)}
+
+  nav{
+    padding:12px 0;
+    backdrop-filter:blur(12px);
+    background:rgba(8,9,8,.86);
+  }
+  .nav{gap:10px}
+  .brand{font-size:18px}
+  .links{gap:8px}
+  .links a:not(.btn){display:none}
+  .links .btn{
+    display:inline-flex;
+    padding:11px 16px;
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:110px 0 52px;
+    align-items:flex-start;
+  }
+  .hero-photo{
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    opacity:.42;
+    object-position:62% center!important;
+  }
+  .hero:after{
+    background:linear-gradient(180deg,rgba(8,9,8,.58),rgba(8,9,8,.82) 55%,#080908 100%)!important;
+  }
+  .hero-content{
+    width:100%!important;
+    padding:0!important;
+  }
+  .hero h1{
+    font-size:clamp(46px,15vw,72px)!important;
+    line-height:.88!important;
+    margin-top:14px;
+  }
+  .lead{font-size:16px;max-width:95%}
+  .actions{flex-direction:column;align-items:stretch}
+  .actions .btn{justify-content:center}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
+  .stat strong{font-size:22px}
+  .stat span{font-size:10px}
+
+  .hero-proof,.hero-social-proof{
+    align-items:flex-start;
+    gap:10px;
+  }
+  .hero-avatars img{
+    width:38px!important;
+    height:38px!important;
+    margin-left:-8px!important;
+  }
+  .wa-preview{
+    width:100%;
+    border-radius:16px;
+    padding:13px;
+  }
+
+  section{padding:72px 0}
+  .headline{
+    font-size:clamp(38px,12vw,58px);
+    line-height:.96;
+  }
+
+  .method-grid{
+    grid-template-columns:1fr!important;
+    gap:14px;
+    margin-top:28px;
+  }
+  .method{
+    min-height:auto;
+    padding:24px;
+    border-radius:20px;
+  }
+  .method h3{
+    margin-top:28px;
+    font-size:23px;
+  }
+  .method p{font-size:15px}
+
+  /* Touch behavior: subtle active feedback, no hover dependency */
+  .method:hover,.wa-preview:hover{transform:none}
+  .method:active{
+    transform:scale(.985);
+    border-color:rgba(201,255,61,.32);
+  }
+  .wa-preview:active{
+    transform:scale(.99);
+    border-color:rgba(37,211,102,.4);
+  }
+
+  .result-grid,.feedbacks{
+    grid-template-columns:1fr!important;
+  }
+
+  .ba-section{height:360vh!important}
+  .ba-stage{
+    grid-template-columns:1fr!important;
+    grid-template-rows:minmax(0,1.25fr) auto!important;
+    height:72vh!important;
+  }
+  .ba-visual{
+    border-radius:20px 20px 0 0!important;
+  }
+  .ba-copy-panel{
+    border-radius:0 0 20px 20px!important;
+    padding:18px!important;
+  }
+  .ba-copy-panel h3{
+    font-size:23px!important;
+  }
+
+  .feedback{padding:24px}
+  .feedback p{font-size:17px}
+
+  .final-cinema{height:340vh!important}
+  .final-copy{
+    width:90%!important;
+  }
+  .final-copy h2{
+    font-size:clamp(58px,19vw,96px)!important;
+  }
+  .final-copy p{
+    font-size:16px;
+    margin-top:24px;
+  }
+  .final-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  footer{padding:24px 0;text-align:center}
+}
+
+@media(max-width:480px){
+  .stats{grid-template-columns:1fr}
+  .stat{
+    padding:10px 0;
+    border-bottom:1px solid #1f211e;
+  }
+  .hero-mini-features{display:grid!important;grid-template-columns:1fr!important}
+}
+
+
+/* Ajuste visual da capa — transição suave entre área escura e foto */
+.hero{
+  isolation:isolate;
+}
+.hero-photo{
+  filter:saturate(.82) contrast(1.04) brightness(.96) !important;
+}
+.hero:after{
+  z-index:1;
+  background:
+    linear-gradient(90deg,
+      #080908 0%,
+      rgba(8,9,8,.98) 18%,
+      rgba(8,9,8,.92) 30%,
+      rgba(8,9,8,.72) 42%,
+      rgba(8,9,8,.40) 52%,
+      rgba(8,9,8,.16) 63%,
+      rgba(8,9,8,.05) 74%,
+      rgba(8,9,8,.18) 100%
+    ) !important;
+}
+
+/* “Ponte” suave no meio para eliminar o corte seco */
+.hero::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:0;
+  bottom:0;
+  left:28%;
+  width:34%;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(8,9,8,.72) 0%,
+      rgba(8,9,8,.52) 24%,
+      rgba(8,9,8,.28) 54%,
+      rgba(8,9,8,.10) 80%,
+      transparent 100%
+    );
+  filter:blur(18px);
+  transform:scaleX(1.08);
+  opacity:.95;
+}
+.hero-content{
+  z-index:2 !important;
+}
+
+/* Desktop: Michel continua visível sem “parede” de preto no meio */
+@media(min-width:801px){
+  .hero-photo{
+    object-position:46% center !important;
+  }
+  .hero::before{
+    left:24%;
+    width:38%;
+    filter:blur(24px);
+  }
+}
+
+/* Mobile: transição vertical mais natural e sem corte lateral */
+@media(max-width:800px){
+  .hero:after{
+    background:
+      linear-gradient(180deg,
+        rgba(8,9,8,.26) 0%,
+        rgba(8,9,8,.48) 28%,
+        rgba(8,9,8,.72) 58%,
+        rgba(8,9,8,.94) 100%
+      ) !important;
+  }
+  .hero::before{
+    left:0;
+    right:0;
+    top:36%;
+    bottom:auto;
+    width:100%;
+    height:42%;
+    background:linear-gradient(180deg,transparent,rgba(8,9,8,.74));
+    filter:blur(16px);
+    transform:none;
+  }
+}
+
+</style></head><body>
+<nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg"><div class="wrap hero-content">
+<div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
+<p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
+<div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
+<div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
+<div class="hero-proof">
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg" alt="Aluno acompanhado"></div>
+  <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
+</div>
+<div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
+<a class="wa-preview" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener" aria-label="Falar com Michel pelo WhatsApp"><div class="wa-icon wa-badge"><svg viewBox="0 0 32 32" aria-label="WhatsApp"><path fill="currentColor" d="M16 4a11 11 0 0 0-9.4 16.7L5 27l6.5-1.7A11 11 0 1 0 16 4Zm0 19.8c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-3.8 1 1-3.7-.2-.4A8.8 8.8 0 1 1 16 23.8Zm4.8-6.6c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.7-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4Z"/></svg></div><div><b>Atendimento direto pelo WhatsApp</b><span>Fale com o Michel sobre objetivo, rotina e disponibilidade.</span></div></a></div></header>
+<section id="metodo"><div class="wrap"><div class="eyebrow reveal">Não é treino genérico</div><h2 class="headline reveal">Estratégia feita<br>para a sua realidade.</h2><p class="sub reveal">O processo começa entendendo seu objetivo, rotina e limitações. A partir daí, o treino evolui junto com você.</p>
+<div class="method-grid"><div class="method reveal"><span class="num">01 — AVALIAÇÃO</span><h3>Entender antes de prescrever.</h3><p>Objetivos, rotina, experiência e condições individuais entram no planejamento.</p></div><div class="method reveal"><span class="num">02 — ESTRATÉGIA</span><h3>Treino que faz sentido.</h3><p>Uma estrutura adaptada ao seu momento, com progressão e propósito em cada etapa.</p></div><div class="method reveal"><span class="num">03 — ACOMPANHAMENTO</span><h3>Você não treina sozinho.</h3><p>Ajustes, cobrança e suporte para transformar consistência em hábito.</p></div></div></div></section>
+<section class="results ba-section" id="resultados">
+<div class="ba-sticky">
+  <div class="wrap">
+    <div class="eyebrow">Resultados reais</div>
+    <h2 class="headline">Do antes ao depois.</h2>
+    <p class="sub">Continue rolando. Primeiro, o ponto de partida. Depois, a evolução com acompanhamento.</p>
+    <div class="ba-stage" id="baStage">
+  <div class="ba-visual">
+    <img class="ba-before" src="transformacao1-before.jpg" alt="Antes">
+    <img class="ba-after" src="transformacao1-after.jpg" alt="Depois">
+    <div class="ba-divider"></div>
+    <div class="ba-handle">↔</div>
+    <span class="ba-label ba-left">ANTES</span>
+    <span class="ba-label ba-right">DEPOIS</span>
+  </div>
+  <aside class="ba-copy-panel" id="baCopyPanel">
+    <div class="accent-line"></div>
+    <div class="phase" id="baStoryMini">Antes do acompanhamento</div>
+    <h3 id="baStoryTitle">Treinar sem direção também cansa.</h3>
+    <p id="baStoryText">Rotina de treino sem uma estratégia individual e sem acompanhamento da evolução.</p>
+  </aside>
+</div>
+<div class="ba-dots"><i class="active"></i><i></i></div>
+  </div>
+</div>
+</section>
+<section id="feedbacks"><div class="wrap"><div class="eyebrow reveal">Quem vive o processo conta melhor</div><div class="quote reveal">“Não é só montar treino. É estar presente até a <b>disciplina virar hábito.</b>”</div>
+<div class="feedbacks"><div class="feedback reveal"><span>Feedback real</span><p>“Ele montou um treino adaptado às minhas condições e houve uma melhora significativa nas dores. Ele cobra e sempre está pronto pra responder quando precisa.”</p></div><div class="feedback reveal"><span>Feedback real</span><p>“Ter um personal trainer ao meu lado tornou esse caminho mais leve e possível. Só tenho a agradecer por me ajudar a fazer da disciplina um hábito.”</p></div></div></div></section>
+<section class="final-cinema" id="contato">
+  <div class="final-sticky">
+    <div class="final-bg"></div>
+    <div class="final-shade"></div>
+    <div class="final-copy">
+      <div class="final-kicker">Sua próxima fase começa aqui</div>
+      <h2><span>CHEGA</span><br><span>DE ADIAR.</span></h2>
+      <p>Você não precisa de mais uma promessa. Precisa de estratégia, constância e alguém acompanhando o processo.</p>
+      <div class="final-location">MICHEL PERSONAL • CAMPINAS — SP</div>
+      <a class="btn final-btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Começar pelo WhatsApp →</a>
+    </div>
+    <div class="final-progress"><i></i></div>
+  </div>
+</section>
+<footer><div class="wrap">MICHEL PERSONAL • Campinas — SP • Atendimento presencial e online.</div></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("on")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
+
+
+
+
+const baSection=document.querySelector(".ba-section");
+const baStage=document.getElementById("baStage");
+const baBefore=baStage?.querySelector(".ba-before");
+const baAfter=baStage?.querySelector(".ba-after");
+const baDivider=baStage?.querySelector(".ba-divider");
+const baHandle=baStage?.querySelector(".ba-handle");
+const baStatus=document.getElementById("baStatus");
+const baStory=document.getElementById("baCopyPanel");
+const baStoryMini=document.getElementById("baStoryMini");
+const baStoryTitle=document.getElementById("baStoryTitle");
+const baStoryText=document.getElementById("baStoryText");
+const baDots=[...document.querySelectorAll(".ba-dots i")];
+
+const baPairs=[
+ {before:"transformacao1-before.jpg",after:"transformacao1-after.jpg"},
+ {before:"transformacao2-before.jpg",after:"transformacao2-after.jpg"}
+];
+let baPair=-1;
+function renderBA(pair,p){
+ if(!baStage)return;
+ if(pair!==baPair){
+   baPair=pair;
+   baBefore.src=baPairs[pair].before;
+   baAfter.src=baPairs[pair].after;
+   baDots.forEach((d,i)=>d.classList.toggle("active",i===pair));
+ }
+ p=Math.max(0,Math.min(1,p));
+ const pct=p*100;
+ baAfter.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
+ baDivider.style.left=pct+"%";
+ baHandle.style.left=pct+"%";
+ if(baStatus) baStatus.textContent=p<.12?"ANTES":p>.88?"DEPOIS":"REVELANDO";
+ if(baStory){
+   const afterMode=p>.56;
+   baStory.classList.toggle("after-mode",afterMode);
+   if(afterMode){
+     baStoryMini.textContent="Com acompanhamento do Michel";
+     baStoryTitle.textContent="Treino com estratégia. Evolução com propósito.";
+     baStoryText.textContent="Planejamento individual, ajustes e acompanhamento para transformar consistência em resultado.";
+   }else{
+     baStoryMini.textContent="Antes do acompanhamento";
+     baStoryTitle.textContent="Treinar sem direção também cansa.";
+     baStoryText.textContent="Rotina de treino sem uma estratégia individual e sem acompanhamento da evolução.";
+   }
+ }
+}
+function updateBA(){
+ if(!baSection)return;
+ const r=baSection.getBoundingClientRect();
+ const scrollable=baSection.offsetHeight-innerHeight;
+ const local=Math.max(0,Math.min(scrollable,-r.top));
+ const progress=scrollable?local/scrollable:0;
+ // First half reveals pair 1, second half pair 2.
+ const pair=progress<.5?0:1;
+ const localP=pair===0?progress/.5:(progress-.5)/.5;
+ // Hold BEFORE briefly, reveal, then hold AFTER before switching/releasing.
+ const reveal=Math.max(0,Math.min(1,(localP-.16)/.68));
+ renderBA(pair,reveal);
+}
+addEventListener("scroll",updateBA,{passive:true});
+addEventListener("resize",updateBA);
+updateBA();
+
+
+const finalCinema=document.querySelector(".final-cinema");
+const finalBg=document.querySelector(".final-bg");
+const finalCopy=document.querySelector(".final-copy");
+const finalBtn=document.querySelector(".final-btn");
+const finalProg=document.querySelector(".final-progress i");
+function updateFinalCinema(){
+ if(!finalCinema)return;
+ const r=finalCinema.getBoundingClientRect();
+ const max=finalCinema.offsetHeight-innerHeight;
+ const p=Math.max(0,Math.min(1,max?(-r.top/max):0));
+ finalBg.style.transform=`scale(${1.08+p*.10})`;
+ finalBg.style.filter=`blur(${25+p*8}px)`;
+ const cp=Math.max(0,Math.min(1,(p-.08)/.58));
+ finalCopy.style.opacity=.18+cp*.82;
+ finalCopy.style.transform=`translateY(${80*(1-cp)}px) scale(${.82+cp*.18})`;
+ const bp=Math.max(0,Math.min(1,(p-.55)/.22));
+ finalBtn.style.opacity=bp;
+ finalBtn.style.transform=`translateY(${20*(1-bp)}px)`;
+ finalProg.style.width=(p*100)+"%";
+}
+addEventListener("scroll",updateFinalCinema,{passive:true});
+addEventListener("resize",updateFinalCinema);
+updateFinalCinema();
+
+
+document.querySelectorAll(".method,.wa-preview").forEach(el=>{
+  el.setAttribute("tabindex","0");
+});
+
+</script></body></html>
