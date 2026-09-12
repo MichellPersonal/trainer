@@ -648,6 +648,81 @@ nav .btn:hover,
   }
 }
 
+
+/* MOBILE V2 — refinamento final sem alterar desktop */
+@media(max-width:800px){
+  /* Mais respiro lateral na área dos 3 alunos */
+  .hero-proof{
+    margin-top:18px !important;
+    padding-right:10px !important;
+    gap:12px !important;
+  }
+  .hero-avatars{
+    flex-shrink:0 !important;
+    padding-left:2px !important;
+  }
+  .hero-avatars img{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    min-height:38px !important;
+    aspect-ratio:1 / 1 !important;
+    border-radius:50% !important;
+    object-fit:cover !important;
+    box-sizing:border-box !important;
+    flex:0 0 38px !important;
+  }
+
+  /* Capa: mais academia e Michel, com conteúdo menos “na cara” */
+  .hero-photo{
+    opacity:.80 !important;
+    object-position:66% center !important;
+    transform:scale(1) !important;
+  }
+  .hero:after{
+    background:
+      linear-gradient(90deg,
+        rgba(8,9,8,.94) 0%,
+        rgba(8,9,8,.80) 30%,
+        rgba(8,9,8,.48) 54%,
+        rgba(8,9,8,.15) 78%,
+        rgba(8,9,8,.05) 100%
+      ),
+      linear-gradient(180deg,
+        rgba(8,9,8,.06) 0%,
+        rgba(8,9,8,.05) 58%,
+        rgba(8,9,8,.84) 100%
+      ) !important;
+  }
+
+  /* CTA mais compacto no telefone */
+  .hero .btn{
+    padding:12px 17px !important;
+    font-size:13px !important;
+    border-radius:11px !important;
+  }
+  .hero-actions{
+    gap:9px !important;
+    flex-wrap:wrap !important;
+  }
+}
+
+@media(max-width:480px){
+  .hero{
+    min-height:100svh !important;
+  }
+  .hero-photo{
+    object-position:64% center !important;
+  }
+  .hero-avatars img{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    min-height:36px !important;
+    flex-basis:36px !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
 <header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg"><div class="wrap hero-content">
