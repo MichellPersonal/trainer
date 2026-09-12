@@ -1032,15 +1032,67 @@ nav .btn:hover,
   }
 }
 
+
+/* === MOBILE FINAL V2 — ajustes a partir da gravação real === */
+@media screen and (max-width:800px){
+  /* Corrige a barra superior: ela fica no topo do hero e NÃO acompanha o scroll */
+  nav{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    transform:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  /* Michel um pouco menor e mais para a direita, ocupando o espaço livre do texto */
+  header.hero > img.hero-photo{
+    width:108% !important;
+    height:108% !important;
+    left:auto !important;
+    right:-7% !important;
+    top:-4% !important;
+    bottom:auto !important;
+    object-fit:cover !important;
+    object-position:79% 50% !important;
+    transform:scale(.91) !important;
+    transform-origin:right center !important;
+    opacity:.91 !important;
+  }
+
+  /* texto preserva a coluna esquerda e deixa o rosto mais livre */
+  .hero h1{
+    max-width:64% !important;
+  }
+  .hero-copy{
+    max-width:53% !important;
+  }
+  .hero-actions{
+    width:61% !important;
+  }
+}
+
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo{
+    right:-8% !important;
+    object-position:80% 50% !important;
+    transform:scale(.89) !important;
+  }
+  .hero h1{max-width:63% !important}
+  .hero-copy{max-width:52% !important}
+  .hero-actions{width:60% !important}
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=spacing1"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=finalv2"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=spacing1" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=spacing1" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=spacing1" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=finalv2" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=finalv2" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=finalv2" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
