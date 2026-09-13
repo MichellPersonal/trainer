@@ -1369,9 +1369,140 @@ nav .btn:hover,
   .hero-actions{width:63% !important}
 }
 
+
+/* === MOBILE — CAMADAS CORRIGIDAS ===
+   Fundo < texto < somente Michel < botões/stats/nav */
+.hero-person-overlay{display:none}
+
+@media screen and (max-width:800px){
+  header.hero{
+    isolation:isolate !important;
+    overflow:hidden !important;
+  }
+
+  /* Fundo normal: continua preenchendo tudo, sem faixa preta */
+  header.hero > img.hero-photo{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:80% 45% !important;
+    transform:none !important;
+    opacity:.92 !important;
+    z-index:0 !important;
+  }
+
+  header.hero:after{
+    z-index:1 !important;
+  }
+
+  /* Texto fica acima do fundo */
+  .hero-content{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  /* A mesma foto reaparece acima do texto SOMENTE na área do Michel.
+     A máscara deixa a parte esquerda transparente, evitando apagar o texto inteiro. */
+  .hero-person-overlay{
+    display:block !important;
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:80% 45% !important;
+    filter:saturate(.82) contrast(1.06);
+    z-index:3 !important;
+    pointer-events:none !important;
+
+    -webkit-mask-image:linear-gradient(90deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(0,0,0,.15) 48%,
+      rgba(0,0,0,.85) 57%,
+      #000 64%,
+      #000 100%);
+    mask-image:linear-gradient(90deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(0,0,0,.15) 48%,
+      rgba(0,0,0,.85) 57%,
+      #000 64%,
+      #000 100%);
+  }
+
+  /* Classes REAIS do HTML: agora o ajuste atinge de fato o texto. */
+  .hero-content h1{
+    width:76% !important;
+    max-width:76% !important;
+    font-size:clamp(43px,10vw,59px) !important;
+    line-height:.92 !important;
+  }
+
+  .hero-content .lead{
+    width:54% !important;
+    max-width:54% !important;
+    font-size:clamp(15px,3.9vw,18px) !important;
+    line-height:1.48 !important;
+  }
+
+  /* Botões e informações ficam por cima do Michel e continuam clicáveis */
+  .hero-content .actions,
+  .hero-content .stats,
+  .hero-proof{
+    position:relative !important;
+    z-index:5 !important;
+  }
+
+  nav{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    z-index:10 !important;
+  }
+}
+
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo,
+  .hero-person-overlay{
+    object-position:81% 45% !important;
+  }
+
+  .hero-content h1{
+    width:78% !important;
+    max-width:78% !important;
+    font-size:clamp(41px,9.8vw,54px) !important;
+  }
+
+  .hero-content .lead{
+    width:53% !important;
+    max-width:53% !important;
+  }
+
+  .hero-person-overlay{
+    -webkit-mask-image:linear-gradient(90deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(0,0,0,.12) 49%,
+      rgba(0,0,0,.88) 58%,
+      #000 65%,
+      #000 100%);
+    mask-image:linear-gradient(90deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(0,0,0,.12) 49%,
+      rgba(0,0,0,.88) 58%,
+      #000 65%,
+      #000 100%);
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=cleanfinal"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=layerfix"><img class="hero-person-overlay" src="michel-hero-v4.jpg?v=layerfix" aria-hidden="true"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
@@ -1392,8 +1523,8 @@ nav .btn:hover,
     <p class="sub">Continue rolando. Primeiro, o ponto de partida. Depois, a evolução com acompanhamento.</p>
     <div class="ba-stage" id="baStage">
   <div class="ba-visual">
-    <img class="ba-before" src="transformacao1-before.jpg" alt="Antes">
-    <img class="ba-after" src="transformacao1-after.jpg" alt="Depois">
+    <img class="ba-before" src="transformacao2-before.jpg" alt="Antes">
+    <img class="ba-after" src="transformacao2-after.jpg" alt="Depois">
     <div class="ba-divider"></div>
     <div class="ba-handle">↔</div>
     <span class="ba-label ba-left">ANTES</span>
@@ -1447,7 +1578,6 @@ const baStoryText=document.getElementById("baStoryText");
 const baDots=[...document.querySelectorAll(".ba-dots i")];
 
 const baPairs=[
- {before:"transformacao1-before.jpg",after:"transformacao1-after.jpg"},
  {before:"transformacao2-before.jpg",after:"transformacao2-after.jpg"}
 ];
 let baPair=-1;
