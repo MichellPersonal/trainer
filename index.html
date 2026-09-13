@@ -1280,43 +1280,104 @@ nav .btn:hover,
 }
 
 
-/* === MOBILE FINALÍSSIMO — somente escala/altura do Michel === */
+/* === MOBILE CLEAN FINAL ===
+   Corrige a faixa preta e separa melhor texto/rosto sem alterar desktop. */
 @media screen and (max-width:800px){
+  header.hero{
+    overflow:hidden !important;
+  }
+
+  /* A imagem volta a preencher 100% do hero: elimina a faixa/corte preto. */
   header.hero > img.hero-photo{
+    position:absolute !important;
+    inset:0 !important;
     width:100% !important;
-    height:91% !important;
-    left:0 !important;
-    right:auto !important;
-    top:3% !important;
-    bottom:auto !important;
+    height:100% !important;
     object-fit:cover !important;
-    object-position:72% 42% !important;
-    transform:translateX(-8%) scale(.89) !important;
-    transform-origin:center center !important;
+    object-position:78% 45% !important;
+    transform:none !important;
     opacity:.94 !important;
   }
+
+  /* Mantém o topo corrigido, sem acompanhar o scroll. */
+  nav{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+  }
+
+  /* Título mais compacto à esquerda, abrindo espaço real para o rosto. */
+  .hero h1{
+    width:64% !important;
+    max-width:64% !important;
+    font-size:clamp(41px,9.7vw,58px) !important;
+    line-height:.93 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  /* Evita que o parágrafo atravesse o rosto. */
+  .hero-copy{
+    width:51% !important;
+    max-width:51% !important;
+    font-size:clamp(15px,3.9vw,18px) !important;
+    line-height:1.42 !important;
+  }
+
+  .hero-actions{
+    width:62% !important;
+    max-width:410px !important;
+  }
+
+  /* Gradiente protege somente a coluna esquerda. */
+  header.hero:after{
+    background:
+      linear-gradient(90deg,
+        rgba(5,6,5,.98) 0%,
+        rgba(5,6,5,.91) 28%,
+        rgba(5,6,5,.60) 45%,
+        rgba(5,6,5,.18) 60%,
+        rgba(5,6,5,.02) 74%,
+        rgba(5,6,5,0) 100%),
+      linear-gradient(180deg,
+        rgba(5,6,5,.02) 0%,
+        rgba(5,6,5,.01) 65%,
+        rgba(5,6,5,.80) 100%) !important;
+  }
 }
+
 @media screen and (max-width:480px){
   header.hero > img.hero-photo{
+    inset:0 !important;
     width:100% !important;
-    height:90% !important;
-    left:0 !important;
-    right:auto !important;
-    top:3% !important;
-    object-position:72% 42% !important;
-    transform:translateX(-10%) scale(.89) !important;
+    height:100% !important;
+    object-position:80% 45% !important;
+    transform:none !important;
   }
+
+  .hero h1{
+    width:65% !important;
+    max-width:65% !important;
+    font-size:clamp(40px,9.8vw,54px) !important;
+  }
+
+  .hero-copy{
+    width:52% !important;
+    max-width:52% !important;
+  }
+
+  .hero-actions{width:63% !important}
 }
 
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
-<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=finalissimo"><div class="wrap hero-content">
+<header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=cleanfinal"><div class="wrap hero-content">
 <div class="eyebrow">Treino inteligente • acompanhamento real</div><h1>SEU OBJETIVO<br><em class="hero-possible">É POSSÍVEL.</em></h1>
 <p class="lead">Treinamento personalizado para transformar disciplina em resultado — com estratégia, adaptação à sua rotina e acompanhamento de verdade.</p>
 <div class="actions"><a class="btn" href="#contato">Começar agora →</a><a class="btn ghost" href="#resultados">Ver resultados</a></div>
 <div class="stats"><div class="stat"><strong>100%</strong><span>PERSONALIZADO</span></div><div class="stat"><strong>ON</strong><span>ACOMPANHAMENTO</span></div><div class="stat"><strong>REAL</strong><span>EVOLUÇÃO</span></div></div>
 <div class="hero-proof">
-  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=finalissimo" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=finalissimo" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=finalissimo" alt="Aluno acompanhado"></div>
+  <div class="hero-avatars"><img src="aluna-1-avatar.jpg?v=cleanfinal" alt="Aluna acompanhada"><img src="aluna-2-avatar.jpg?v=cleanfinal" alt="Aluna acompanhada"><img src="aluno-3-avatar.jpg?v=cleanfinal" alt="Aluno acompanhado"></div>
   <div><strong>Alunos acompanhados de perto</strong><small>Resultados reais • suporte e constância.</small></div>
 </div>
 <div class="location-pill">⌖ Campinas — SP • atendimento presencial e online</div>
