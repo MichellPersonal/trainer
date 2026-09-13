@@ -1615,11 +1615,10 @@ function updateBA(){
  const scrollable=baSection.offsetHeight-innerHeight;
  const local=Math.max(0,Math.min(scrollable,-r.top));
  const progress=scrollable?local/scrollable:0;
- // First half reveals pair 1, second half pair 2.
- const pair=progress<.5?0:1;
- const localP=pair===0?progress/.5:(progress-.5)/.5;
- // Hold BEFORE briefly, reveal, then hold AFTER before switching/releasing.
- const reveal=Math.max(0,Math.min(1,(localP-.16)/.68));
+ // Existe apenas UM par de transformação:
+ // revela uma única vez do ANTES para o DEPOIS durante a rolagem.
+ const pair=0;
+ const reveal=Math.max(0,Math.min(1,(progress-.16)/.68));
  renderBA(pair,reveal);
 }
 addEventListener("scroll",updateBA,{passive:true});
@@ -1657,3 +1656,8 @@ document.querySelectorAll(".method,.wa-preview").forEach(el=>{
 });
 
 </script></body></html>
+<style>
+/* Um único antes/depois: sem repetir a animação */
+.ba-section{height:240vh !important}
+@media(max-width:800px){.ba-section{height:240vh !important}}
+</style>
