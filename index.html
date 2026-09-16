@@ -1500,6 +1500,40 @@ nav .btn:hover,
   }
 }
 
+
+/* === MOBILE HERO — leitura limpa / Michel à direita === */
+@media screen and (max-width:800px){
+  header.hero{min-height:100svh !important;padding:118px 0 58px !important;align-items:flex-start !important;}
+  header.hero > img.hero-photo,
+  header.hero > img.hero-person-overlay{object-position:84% 45% !important;}
+
+  /* Michel só passa à frente no extremo direito; não invade título, texto ou CTAs */
+  .hero-person-overlay{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 68%,rgba(0,0,0,.18) 72%,rgba(0,0,0,.82) 78%,#000 84%,#000 100%) !important;
+    mask-image:linear-gradient(90deg,transparent 0%,transparent 68%,rgba(0,0,0,.18) 72%,rgba(0,0,0,.82) 78%,#000 84%,#000 100%) !important;
+  }
+  .hero-content{width:100% !important;max-width:none !important;}
+  .hero-content .eyebrow{width:62% !important;max-width:62% !important;line-height:1.45 !important;}
+  .hero-content h1{width:66% !important;max-width:66% !important;font-size:clamp(43px,10vw,58px) !important;line-height:.91 !important;margin:22px 0 28px !important;}
+  .hero-content .lead{width:50% !important;max-width:50% !important;font-size:clamp(15px,3.8vw,18px) !important;line-height:1.5 !important;}
+  .hero-content .actions{width:64% !important;max-width:64% !important;display:flex !important;flex-direction:column !important;gap:12px !important;}
+  .hero-content .actions .btn{width:100% !important;justify-content:center !important;background:var(--lime) !important;opacity:1 !important;}
+  .hero-content .actions .btn.ghost{background:#121312 !important;color:#fff !important;border:1px solid #454545 !important;}
+  .hero-content .stats{width:64% !important;max-width:64% !important;}
+}
+@media screen and (max-width:480px){
+  header.hero > img.hero-photo,
+  header.hero > img.hero-person-overlay{object-position:86% 45% !important;}
+  .hero-content .eyebrow{width:60% !important;max-width:60% !important;font-size:11px !important;}
+  .hero-content h1{width:64% !important;max-width:64% !important;font-size:clamp(40px,10.7vw,50px) !important;}
+  .hero-content .lead{width:49% !important;max-width:49% !important;}
+  .hero-content .actions,.hero-content .stats{width:62% !important;max-width:62% !important;}
+  .hero-person-overlay{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 70%,rgba(0,0,0,.15) 74%,rgba(0,0,0,.82) 80%,#000 86%,#000 100%) !important;
+    mask-image:linear-gradient(90deg,transparent 0%,transparent 70%,rgba(0,0,0,.15) 74%,rgba(0,0,0,.82) 80%,#000 86%,#000 100%) !important;
+  }
+}
+
 </style></head><body>
 <nav><div class="wrap nav"><div class="brand">MICHEL <b>PERSONAL</b></div><div class="links"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#feedbacks">Feedbacks</a><a class="btn" href="https://wa.me/5519986118442?text=Ol%C3%A1%20Michel%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20acompanhamento." target="_blank" rel="noopener">Quero começar</a></div></div></nav>
 <header class="hero"><img class="hero-photo" src="michel-hero-v4.jpg?v=layerfix"><img class="hero-person-overlay" src="michel-hero-v4.jpg?v=layerfix" aria-hidden="true"><div class="wrap hero-content">
